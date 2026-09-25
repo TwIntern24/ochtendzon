@@ -23,4 +23,8 @@ def main():
   match args.command:
     case 'build':
       from ochtendzon.build import build
-      build(args)
+      return build(args)
+
+    case 'init':
+      from ochtendzon.init import init
+      return init(args)

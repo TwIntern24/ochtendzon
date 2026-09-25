@@ -1,4 +1,5 @@
-from ochtendzon.build.files import build_folder, create_folder, link_binary
+from ochtendzon.build.files import build_folder, create_folder
+from ochtendzon.build.process import link_binary
 from os.path import isdir
 
 def build(args):
@@ -11,5 +12,5 @@ def build(args):
     link_binary('target/hello-world', object_files)
   else:
     print('Source folder not found')
-    os.exit(1)
+    return 1
   

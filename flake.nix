@@ -32,6 +32,8 @@
 
             buildInputs = bi;
 
+            propagatedBuildInputs = [ pkgs.python313Packages.toml ];
+
             meta = {
               homepage = "https://github.com/tau-lang/ochtendzon";
               license = lib.licenses.eupl12;
