@@ -28,3 +28,11 @@ def main():
     case 'init':
       from ochtendzon.init import init
       return init(args)
+
+    case 'run':
+      from ochtendzon.build import build
+      status = build(parser_build.parse_args([]))
+      if status != 0: return status
+
+      from ochtendzon.run import run
+      return run(args)
