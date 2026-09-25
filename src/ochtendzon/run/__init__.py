@@ -1,5 +1,6 @@
 import subprocess
 import sys
+from os.path import isfile, isdir
 from ochtendzon.config import CONFIG_NAME, load_config
 
 def run(args):
@@ -11,9 +12,8 @@ def run(args):
 
   if isdir('target'):
     binary = config['project']['name']
-    with subprocess.Popen([f'target/{binary}'],
-      stdin=sys.stdin, stdout=sys.stdout, stderr=sys.stderr) as process:
-      return process.returncode
+    result = subprocess.run([f'target/{binary}'])
+    return result.returncode
   else:
     print('Target folder not found')
     return 1

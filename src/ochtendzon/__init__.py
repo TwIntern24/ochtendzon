@@ -32,7 +32,7 @@ def main():
     case 'run':
       from ochtendzon.build import build
       status = build(parser_build.parse_args([]))
-      if status != 0: return status
+      if status not in (0, None): return status
 
       from ochtendzon.run import run
       return run(args)
